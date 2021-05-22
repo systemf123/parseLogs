@@ -34,6 +34,10 @@ class ParseLogController extends Controller
         $i = 0;
         // подключение к базе данных
         $connection = \Yii::$app->db;
+        $сount = Yii::$app->db->createCommand('select count(*) from logs')->queryScalar();
+
+        if ($сount > 0) return ExitCode::UNSPECIFIED_ERROR;
+
         // Составляем SQL запрос
         $sql = "INSERT INTO logs (`ip`,`date_time`,`timestamp`,`url`,`user_agent`,`operation`,`architecture`,`browser`) VALUE";
         foreach ($logs as $log) {
