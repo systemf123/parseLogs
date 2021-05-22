@@ -1,0 +1,142 @@
+.filter {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.filter__caption {
+    text-align: center;
+}
+.filter__content {
+    margin-bottom: 20px;
+}
+.filter__label {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.filter__col {}
+.filter__btn {
+
+}
+.table {
+    width: 100%;
+}
+.table th:nth-child(1) {width: 8%;}
+.table th:nth-child(2) {width: 10%;}
+.table th:nth-child(3) {width: 27%;}
+.table th:nth-child(4) {width: 14%;}
+.table th:nth-child(5) {width: 55%;}
+.table th:nth-child(6) {width: 5%;}
+.table th:nth-child(7) {width: 5%;}
+.table th:nth-child(8) {width: 5%;}
+
+.loader-wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .5);
+}
+.loader_container {
+    position: absolute;
+    z-index: 5;
+    top: 10%;
+    left: 50%;
+    width: 10%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.pending .loader-wrap {
+    display: block;
+}
+.loader_circular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+}
+
+.loader_path {
+    stroke: #FF0000;
+    stroke-width: 2;
+    stroke-dasharray: 70, 200;
+    stroke-dashoffset: 0;
+    -webkit-animation: dash 1.5s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke-linecap: square;
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+.table_sort table {
+    border-collapse: collapse;
+}
+
+.table_sort th {
+    color: #ffebcd;
+    background: #008b8b;
+    cursor: pointer;
+}
+
+.table_sort td,
+.table_sort th {
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid #846868;
+}
+
+.table_sort tbody tr:nth-child(even) {
+    background: #e3e3e3;
+}
+
+th.sorted[data-order="1"],
+th.sorted[data-order="-1"] {
+    position: relative;
+}
+
+th.sorted[data-order="1"]::after,
+th.sorted[data-order="-1"]::after {
+    right: 8px;
+    position: absolute;
+}
+
+th.sorted[data-order="-1"]::after {
+    content: "▼"
+}
+
+th.sorted[data-order="1"]::after {
+    content: "▲"
+}
+.alert-no-data {
+    font-size: 25px;
+    text-align: center;
+}
